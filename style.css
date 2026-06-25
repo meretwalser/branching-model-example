@@ -1,0 +1,337 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+}
+
+.container {
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #e2b96f;
+  text-shadow: 0 0 20px rgba(226, 185, 111, 0.5);
+}
+
+.subtitle {
+  color: #aaa;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* --- Cat wrapper --- */
+.cat-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+/* --- Cat --- */
+.cat {
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.1s;
+}
+
+.cat:active {
+  transform: scale(0.95);
+}
+
+.cat-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Head */
+.cat-head {
+  position: relative;
+  width: 140px;
+  height: 120px;
+}
+
+.face {
+  width: 140px;
+  height: 120px;
+  background: #e8b86d;
+  border-radius: 50% 50% 45% 45%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset -4px -4px 12px rgba(0,0,0,0.15);
+}
+
+/* Ears */
+.ear {
+  position: absolute;
+  top: -28px;
+  width: 0;
+  height: 0;
+  border-left: 24px solid transparent;
+  border-right: 24px solid transparent;
+  border-bottom: 38px solid #e8b86d;
+  transition: transform 0.3s;
+}
+.left-ear  { left: 10px; transform: rotate(-10deg); }
+.right-ear { right: 10px; transform: rotate(10deg); }
+
+.ear-inner {
+  position: absolute;
+  top: 8px;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 18px solid #f4a0a0;
+}
+
+.cat.happy .left-ear  { transform: rotate(-20deg) translateY(-4px); }
+.cat.happy .right-ear { transform: rotate(20deg)  translateY(-4px); }
+
+/* Eyes */
+.eyes {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 10px;
+}
+
+.eye {
+  width: 28px;
+  height: 28px;
+  background: #5dd0c0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: height 0.2s, border-radius 0.2s;
+  box-shadow: 0 0 8px rgba(93,208,192,0.6);
+}
+
+.pupil {
+  width: 12px;
+  height: 16px;
+  background: #1a1a1a;
+  border-radius: 50%;
+  transition: width 0.2s, height 0.2s;
+}
+
+.cat.happy .eye {
+  height: 16px;
+  border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+}
+.cat.happy .pupil {
+  width: 14px;
+  height: 10px;
+}
+
+.cat.blinking .eye {
+  height: 4px;
+  border-radius: 50%;
+}
+
+/* Nose */
+.nose {
+  width: 12px;
+  height: 8px;
+  background: #e07070;
+  border-radius: 50% 50% 40% 40%;
+  margin-bottom: 6px;
+}
+
+/* Mouth */
+.mouth {
+  display: flex;
+  gap: 2px;
+}
+.mouth-left,
+.mouth-right {
+  width: 14px;
+  height: 8px;
+  border: 2px solid #c05050;
+  border-top: none;
+  border-radius: 0 0 50% 50%;
+  transition: width 0.3s;
+}
+.cat.happy .mouth-left,
+.cat.happy .mouth-right {
+  width: 18px;
+}
+
+/* Whiskers */
+.whiskers {
+  position: absolute;
+  bottom: 28px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
+  pointer-events: none;
+}
+.whisker-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.whisker {
+  width: 44px;
+  height: 1.5px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 2px;
+}
+.right-whiskers .whisker {
+  transform-origin: left center;
+}
+.left-whiskers .whisker {
+  transform-origin: right center;
+}
+
+/* Torso */
+.torso {
+  position: relative;
+  width: 120px;
+  height: 100px;
+  background: #e8b86d;
+  border-radius: 40% 40% 50% 50%;
+  margin-top: -10px;
+  box-shadow: inset -4px -6px 14px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+/* Paws */
+.paw {
+  width: 30px;
+  height: 20px;
+  background: #e8b86d;
+  border-radius: 50% 50% 60% 60%;
+  box-shadow: inset -2px -3px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+.cat.happy .left-paw  { transform: rotate(-15deg) translateY(-6px); }
+.cat.happy .right-paw { transform: rotate(15deg)  translateY(-6px); }
+
+/* Tail */
+.tail {
+  position: absolute;
+  right: -30px;
+  bottom: 10px;
+  width: 16px;
+  height: 70px;
+  background: #e8b86d;
+  border-radius: 8px 8px 12px 4px;
+  transform-origin: bottom center;
+  animation: wag 2s ease-in-out infinite;
+}
+.cat.happy .tail {
+  animation: wag-fast 0.5s ease-in-out infinite;
+}
+
+@keyframes wag {
+  0%, 100% { transform: rotate(-10deg); }
+  50%       { transform: rotate(20deg); }
+}
+@keyframes wag-fast {
+  0%, 100% { transform: rotate(-25deg); }
+  50%       { transform: rotate(35deg); }
+}
+
+/* --- Hearts --- */
+.hearts {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  font-size: 1.4rem;
+  animation: floatUp 1.2s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-80px) scale(1.4); }
+}
+
+/* --- Stats --- */
+.stats {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.stat-box {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255,255,255,0.08);
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.bar-bg {
+  width: 100px;
+  height: 10px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(90deg, #e8b86d, #e07070);
+  border-radius: 5px;
+  transition: width 0.4s ease;
+}
+
+.stat-value {
+  font-size: 0.85rem;
+  color: #e8b86d;
+  min-width: 36px;
+}
+
+.stat-count {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #e8b86d;
+}
+
+/* --- Mood --- */
+.mood {
+  font-size: 1rem;
+  color: #ccc;
+  min-height: 1.5rem;
+  transition: opacity 0.3s;
+  font-style: italic;
+}
