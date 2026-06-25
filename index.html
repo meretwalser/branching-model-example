@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet the Cat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Pet the Cat</h1>
+    <p class="subtitle">Click the cat to pet it!</p>
+
+    <div class="cat-wrapper">
+      <div class="cat" id="cat">
+        <div class="cat-body">
+          <div class="cat-head">
+            <div class="ear left-ear"><div class="ear-inner"></div></div>
+            <div class="ear right-ear"><div class="ear-inner"></div></div>
+            <div class="face">
+              <div class="eyes">
+                <div class="eye left-eye"><div class="pupil"></div></div>
+                <div class="eye right-eye"><div class="pupil"></div></div>
+              </div>
+              <div class="nose"></div>
+              <div class="mouth">
+                <div class="mouth-left"></div>
+                <div class="mouth-right"></div>
+              </div>
+              <div class="whiskers">
+                <div class="whisker-group left-whiskers">
+                  <div class="whisker"></div>
+                  <div class="whisker"></div>
+                  <div class="whisker"></div>
+                </div>
+                <div class="whisker-group right-whiskers">
+                  <div class="whisker"></div>
+                  <div class="whisker"></div>
+                  <div class="whisker"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="torso">
+            <div class="paw left-paw"></div>
+            <div class="paw right-paw"></div>
+            <div class="tail"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hearts" id="hearts"></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-box">
+        <span class="stat-label">Happiness</span>
+        <div class="bar-bg"><div class="bar" id="happinessBar"></div></div>
+        <span class="stat-value" id="happinessVal">50%</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">Pets given</span>
+        <span class="stat-count" id="petCount">0</span>
+      </div>
+    </div>
+
+    <p class="mood" id="mood">The cat looks at you curiously...</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
