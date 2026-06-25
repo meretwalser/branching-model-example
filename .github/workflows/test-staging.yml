@@ -1,0 +1,39 @@
+name: Test (staging)
+
+on:
+  push:
+    branches:
+      - staging
+  pull_request:
+    branches:
+      - staging
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate HTML
+        run: |
+          if [ -f index.html ]; then
+            echo "index.html found — extend this step with htmlhint or similar"
+          else
+            echo "index.html not found — skipping"
+          fi
+
+      - name: Validate CSS
+        run: |
+          if [ -f style.css ]; then
+            echo "style.css found — extend this step with stylelint"
+          else
+            echo "style.css not found — skipping"
+          fi
+
+      - name: Validate JS
+        run: |
+          if [ -f script.js ]; then
+            echo "script.js found — extend this step with eslint"
+          else
+            echo "script.js not found — skipping"
+          fi
